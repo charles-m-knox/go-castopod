@@ -51,8 +51,10 @@ func RandomAlphanumeric(length int) ([]byte, error) {
 }
 
 // NewToken takes a sha256 of 8 alphanumeric characters (upper and lowercase
-// OK). This is what Castopod uses for its token generator.
-func NewToken() string {
+// OK). This is what Castopod uses for its token generator. The first return
+// value is the secret token, and the second return value is the hashed token
+// that should be stored in Castopod's database.
+func NewToken() (string, string) {
 	r, err := RandomAlphanumeric(8)
 	if err != nil {
 		log.Fatalf("failed to get random number: %v", err.Error())
@@ -60,5 +62,5 @@ func NewToken() string {
 
 	h := sha256.Sum256(r)
 
-	return hex.EncodeToString(h[:])
+	return string(r), hex.EncodeToString(h[:])
 }

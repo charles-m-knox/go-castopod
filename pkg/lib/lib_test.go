@@ -9,9 +9,14 @@ import (
 func TestNewToken(t *testing.T) {
 	t.Parallel()
 
-	got := castopod.NewToken()
-	if len(got) != 64 {
-		t.Logf("expected 64 digit token, got %v", len(got))
+	gotSecret, gotHash := castopod.NewToken()
+
+	if len(gotSecret) != 8 {
+		t.Logf("expected 8 digit token, gotSecret %v", len(gotSecret))
+		t.Fail()
+	}
+	if len(gotHash) != 64 {
+		t.Logf("expected 64 digit token, gotHash %v", len(gotHash))
 		t.Fail()
 	}
 }

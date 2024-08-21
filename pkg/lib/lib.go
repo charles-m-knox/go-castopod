@@ -8,6 +8,11 @@ import (
 )
 
 const (
+	CastopodStatusSuspended = "suspended"
+	CastopodStatusActive    = "active"
+)
+
+const (
 	// Used for generating [RandomAlphanumeric] characters.
 	AlphanumericCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 	// Precalculated length of [AlphanumericCharacters] as a constant for the sake of efficiency.

@@ -3,7 +3,7 @@ package castopod_test
 import (
 	"testing"
 
-	castopod "git.cmcode.dev/cmcode/go-castopod/pkg/lib"
+	castopod "github.com/charles-m-knox/go-castopod/pkg/lib"
 )
 
 func TestNewToken(t *testing.T) {
